@@ -1,6 +1,7 @@
 package com.example.menulateraldos.ui.gallery;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -34,5 +35,26 @@ public class GalleryFragment extends Fragment {
         MyAdapter adapter = new MyAdapter(images);
         recyclerView.setAdapter(adapter);
     }
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        int position = item.getGroupId(); // Obtiene la posición desde el ID del grupo
+
+        int id = item.getItemId();
+        if (id == R.id.action_edit) {
+            // Manejar edición para la posición
+            return true;
+        } else if (id == R.id.action_delete) {
+            // Manejar eliminación para la posición
+            return true;
+        } else if (id == R.id.action_share) {
+            // Manejar compartición para la posición
+            return true;
+        }
+
+        return super.onContextItemSelected(item);
+    }
 
 }
+
+
+
